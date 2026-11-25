@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Photo gallery">
+  <title>Gallery | TechMinds Club</title>
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/theme-frost.css">
+  <link rel="stylesheet" href="css/lotus.css">
+</head>
+<body>
+  <div id="loader"><div class="loader-ring"></div></div>
+  <div id="scroll-progress"></div>
+
+  <!-- Header & navigation (built by js/main.js) -->
+  <header id="site-header"></header>
+
+  <main>
+  <!-- Page header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="reveal">Photo <span class='text-gradient'>Gallery</span></h1>
+      <p class="reveal">Moments from our events, workshops and competitions. Click any item to open it.</p>
+      <div class="breadcrumb reveal"><a href="home.html">Home</a> / <span>Gallery</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="filters reveal" id="gallery-filters" style="justify-content:center;margin-bottom:35px">
+        <button class="filter-btn active" data-filter="All">All</button>
+        <button class="filter-btn" data-filter="Events">Events</button>
+        <button class="filter-btn" data-filter="Workshops">Workshops</button>
+        <button class="filter-btn" data-filter="Competitions">Competitions</button>
+      </div>
+      <div class="gallery" id="gallery-grid"></div>
+    </div>
+  </section>
+
+  <!-- Lightbox popup -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-btn lb-close" id="lb-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lb-btn lb-prev" id="lb-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="lightbox-content" id="lb-content"></div>
+    <button class="lb-btn lb-next" id="lb-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  </main>
+
+  <!-- Footer (built by js/main.js) -->
+  <div id="site-footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/frost.js"></script>
+  <script src="js/lotus.js" defer></script>
+</body>
+</html>

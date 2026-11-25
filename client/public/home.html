@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TechMinds - University Technology Club Portal">
+  <title>Home | TechMinds Club</title>
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/theme-frost.css">
+  <link rel="stylesheet" href="css/lotus.css">
+</head>
+<body>
+  <div id="loader"><div class="loader-ring"></div></div>
+  <div id="scroll-progress"></div>
+
+  <!-- Header & navigation (built by js/main.js) -->
+  <header id="site-header"></header>
+
+  <main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal left">
+        <span class="badge"><i class="fa-solid fa-leaf"></i> Borg El Arab Technological University</span>
+        <h1>Welcome to <span class="text-gradient">TechMinds</span><br>where we <span class="typed text-gradient" data-words="learn,build,innovate,grow together"></span></h1>
+        <p>The university technology club that connects passionate students through workshops, hackathons, seminars and real projects.</p>
+        <div class="hero-buttons">
+          <a href="events.html" class="btn btn-primary"><i class="fa-solid fa-calendar-days"></i> Explore Events</a>
+          <a href="about.html" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal right">
+        <div class="hero-card main tilt">
+          <i class="fa-solid fa-laptop-code"></i>
+          <h3>Learn. Build. Share.</h3>
+          <p>Join 350+ active students</p>
+        </div>
+        <div class="hero-card float1">
+          <div class="ic"><i class="fa-solid fa-trophy"></i></div>
+          <div><strong>1st Place</strong><small>Regional Hackathon</small></div>
+        </div>
+        <div class="hero-card float2">
+          <div class="ic"><i class="fa-solid fa-users"></i></div>
+          <div><strong>12 Committees</strong><small>Members</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics with animated counters -->
+  <section>
+    <div class="container stats">
+      <div class="stat reveal"><i class="fa-solid fa-users"></i><h3 data-count="350" data-suffix="+">0</h3><p>Active Members</p></div>
+      <div class="stat reveal"><i class="fa-solid fa-calendar-check"></i><h3 data-count="45">0</h3><p>Events Held</p></div>
+      <div class="stat reveal"><i class="fa-solid fa-chalkboard-user"></i><h3 data-count="28">0</h3><p>Workshops</p></div>
+      <div class="stat reveal"><i class="fa-solid fa-award"></i><h3 data-count="12">0</h3><p>Awards Won</p></div>
+    </div>
+  </section>
+
+  <!-- Club introduction -->
+  <section class="bg-soft">
+    <div class="container grid-2">
+      <div class="about-visual reveal left tilt"><i class="fa-solid fa-lightbulb"></i></div>
+      <div class="about-text reveal right">
+        <span class="chip">Who We Are</span>
+        <h2 style="margin-top:10px">A community of <span class="text-gradient">future tech leaders</span></h2>
+        <p>TechMinds was founded by IT students who believe that learning is better together. We organise practical activities that go beyond the classroom.</p>
+        <ul class="check-list">
+          <li><i class="fa-solid fa-circle-check"></i> Weekly hands-on workshops</li>
+          <li><i class="fa-solid fa-circle-check"></i> Hackathons & competitions</li>
+          <li><i class="fa-solid fa-circle-check"></i> Networking with tech companies</li>
+        </ul>
+        <a href="about.html" class="btn btn-primary" style="margin-top:15px">About the Club</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countdown to next event -->
+  <section>
+    <div class="container">
+      <div class="countdown-box reveal zoom">
+        <div>
+          <span class="badge" style="background:rgba(255,255,255,.2);color:#fff;border:none">Next Event</span>
+          <h2 id="next-title" style="margin-top:12px">Loading...</h2>
+          <p id="next-info"></p>
+          <a href="register.html" id="next-link" class="btn" style="background:#fff;color:var(--mint-700);margin-top:18px">Reserve Your Seat</a>
+        </div>
+        <div class="countdown" id="countdown"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming events -->
+  <section class="bg-soft">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="tag">Don't miss</span>
+        <h2>Upcoming <span class="text-gradient">Events</span></h2>
+        <p>Register now for our next activities and reserve your seat.</p>
+        <div class="line"></div>
+      </div>
+      <div class="grid-3" id="featured-events"></div>
+      <div style="text-align:center;margin-top:40px"><a href="events.html" class="btn btn-outline">View All Events <i class="fa-solid fa-arrow-right"></i></a></div>
+    </div>
+  </section>
+
+  <!-- Latest news -->
+  <section>
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="tag">What's new</span>
+        <h2>Latest <span class="text-gradient">News</span></h2>
+        <div class="line"></div>
+      </div>
+      <div class="grid-3" id="latest-news"></div>
+      <div style="text-align:center;margin-top:40px"><a href="news.html" class="btn btn-outline">All News <i class="fa-solid fa-arrow-right"></i></a></div>
+    </div>
+  </section>
+
+  <!-- Call to action -->
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="cta reveal zoom">
+        <h2>Ready to join the community?</h2>
+        <p>Create your account and start registering for events today.</p>
+        <a href="login.html" class="btn btn-primary">Join TechMinds <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Footer (built by js/main.js) -->
+  <div id="site-footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/frost.js"></script>
+  <script src="js/lotus.js" defer></script>
+</body>
+</html>

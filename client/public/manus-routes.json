@@ -1,0 +1,84 @@
+{
+ "routes": [
+  {
+   "path": "/",
+   "title": "Home | TechMinds Club"
+  },
+  {
+   "path": "/about.html",
+   "title": "About Us | TechMinds Club"
+  },
+  {
+   "path": "/contact.html",
+   "title": "Contact Us | TechMinds Club"
+  },
+  {
+   "path": "/event-details.html",
+   "title": "Event Details | TechMinds Club"
+  },
+  {
+   "path": "/events.html",
+   "title": "Events | TechMinds Club"
+  },
+  {
+   "path": "/faq.html",
+   "title": "FAQ | TechMinds Club"
+  },
+  {
+   "path": "/gallery.html",
+   "title": "Gallery | TechMinds Club"
+  },
+  {
+   "path": "/home.html",
+   "title": "Home | TechMinds Club"
+  },
+  {
+   "path": "/login.html",
+   "title": "Secure Admin Sign-In | TechMinds Club"
+  },
+  {
+   "path": "/members.html",
+   "title": "Members | TechMinds Club"
+  },
+  {
+   "path": "/my-registrations.html",
+   "title": "My Tickets | TechMinds Club"
+  },
+  {
+   "path": "/news.html",
+   "title": "News | TechMinds Club"
+  },
+  {
+   "path": "/register.html",
+   "title": "Event Registration | TechMinds Club"
+  },
+  {
+   "path": "/admin",
+   "title": "Admin - Overview"
+  },
+  {
+   "path": "/admin/registrations",
+   "title": "Admin - Registrations"
+  },
+  {
+   "path": "/admin/events",
+   "title": "Admin - Events"
+  },
+  {
+   "path": "/admin/members",
+   "title": "Admin - Members"
+  },
+  {
+   "path": "/admin/news",
+   "title": "Admin - News"
+  },
+  {
+   "path": "/admin/messages",
+   "title": "Admin - Messages"
+  },
+  {
+   "path": "/admin/users",
+   "title": "Admin - Users"
+  }
+ ]
+}

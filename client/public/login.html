@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure administrator sign-in for the TechMinds Club Portal">
+  <title>Secure Admin Sign-In | TechMinds Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/theme-frost.css">
+  <link rel="stylesheet" href="css/lotus.css">
+</head>
+<body>
+  <div id="loader"><div class="loader-ring"></div></div>
+  <div id="scroll-progress"></div>
+  <header id="site-header"></header>
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1 class="reveal">Secure <span class="text-gradient">Admin Sign-In</span></h1>
+        <p class="reveal">Administrator access is protected by Manus sign-in and server-verified permissions.</p>
+        <div class="breadcrumb reveal"><a href="home.html">Home</a> / <span>Admin Sign-In</span></div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="auth-card reveal zoom" style="max-width:720px">
+          <div class="auth-body" style="padding:36px">
+            <div style="text-align:center;margin-bottom:22px">
+              <div class="success-icon" style="margin:0 auto 16px;background:var(--grad-main);color:#fff">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h2>One secure sign-in</h2>
+              <p style="margin-top:10px">Student accounts and passwords are not stored on this page. Event registration is available directly from the public portal.</p>
+            </div>
+            <ul class="check-list" style="max-width:520px;margin:0 auto 26px">
+              <li><i class="fa-solid fa-circle-check"></i> Sign in with your Manus account.</li>
+              <li><i class="fa-solid fa-circle-check"></i> The server checks the administrator role for every dashboard operation.</li>
+              <li><i class="fa-solid fa-circle-check"></i> The first administrator must claim access with the one-time setup code.</li>
+            </ul>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+              <a href="/admin" class="btn btn-primary"><i class="fa-solid fa-right-to-bracket"></i> Open Admin Dashboard</a>
+              <a href="events.html" class="btn btn-outline">Browse Events</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/i18n.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/frost.js"></script>
+  <script src="js/lotus.js" defer></script>
+</body>
+</html>

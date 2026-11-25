@@ -1,0 +1,175 @@
+/* =========================================================
+   theme-frost.css - "Mint Frost" theme layer
+   White + mint green, accented with lavender purple and an
+   icy frosted-glass touch. Loaded after style.css.
+   ========================================================= */
+:root {
+  /* purple accents */
+  --violet-50: #f6f3ff;
+  --violet-100: #ede7fe;
+  --violet-200: #dcd0fd;
+  --violet-300: #c4b2fb;
+  --violet-400: #a78bfa;
+  --violet-500: #8b5cf6;
+  --violet-600: #7c3aed;
+  /* ice tones */
+  --ice-50: #f3fbff;
+  --ice-100: #e3f5fd;
+  --ice-200: #c9ecfb;
+  --ice-300: #a5def7;
+  --frost-border: rgba(186, 225, 245, .75);
+  --frost-glass: rgba(255, 255, 255, .72);
+
+  --border: #dbeff0;
+  --grad-main: linear-gradient(135deg, #2ebf8b 0%, #14b8a6 48%, #8b5cf6 100%);
+  --grad-soft: linear-gradient(135deg, #effdf7 0%, #e9f7fd 55%, #f3efff 100%);
+  --grad-light: linear-gradient(180deg, #ffffff 0%, #f1fbfa 50%, #f5f2ff 100%);
+  --grad-hero: linear-gradient(135deg, #ffffff 0%, #ecfbf4 35%, #e6f6fd 65%, #f1ecff 100%);
+  --grad-text: linear-gradient(90deg, #1fa477 0%, #14b8a6 40%, #38bdf8 65%, #8b5cf6 100%);
+  --grad-dark: linear-gradient(135deg, #12332a 0%, #155e57 45%, #3b2a75 100%);
+  --grad-ice: linear-gradient(135deg, rgba(255, 255, 255, .9) 0%, rgba(227, 245, 253, .75) 50%, rgba(237, 231, 254, .7) 100%);
+  --shadow-sm: 0 2px 12px rgba(56, 150, 170, .08);
+  --shadow-md: 0 12px 32px rgba(46, 140, 160, .14), 0 2px 8px rgba(139, 92, 246, .06);
+  --shadow-lg: 0 22px 55px rgba(60, 90, 160, .18), 0 6px 18px rgba(139, 92, 246, .10);
+}
+
+/* soft frosted background on every page */
+body {
+  background:
+    radial-gradient(1200px 500px at 110% -10%, rgba(196, 178, 251, .18), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(165, 222, 247, .16), transparent 60%),
+    var(--white);
+  background-attachment: fixed;
+}
+::selection { background: var(--violet-200); color: #2e1065; }
+
+/* text gradient shimmers slowly (ice glint) */
+.text-gradient { background-size: 200% auto; animation: frost-shimmer 6s linear infinite; }
+
+/* ---------- Frosted glass surfaces ---------- */
+.card, .stat, .feature, .member, .side-box, .auth-card, .hero-card.float1, .hero-card.float2, .faq-item, .table-wrap, .success-box {
+  background: var(--frost-glass);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--frost-border);
+  box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+.card:hover, .member:hover, .stat:hover, .feature:hover {
+  border-color: var(--violet-300);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 #fff;
+}
+.feature:hover { background: var(--grad-ice); }
+
+/* subtle frost sheen sweeping across cards on hover */
+.card, .member, .stat { position: relative; overflow: hidden; }
+.card::after, .member::after, .stat::after {
+  content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%; pointer-events: none;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, .55), transparent);
+  transform: skewX(-18deg); transition: left .8s ease;
+}
+.card:hover::after, .member:hover::after, .stat:hover::after { left: 130%; }
+
+/* navbar: icy glass when scrolled */
+.navbar.scrolled, .navbar.sticky, .navbar.is-scrolled {
+  background: rgba(255, 255, 255, .78) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  border-bottom: 1px solid var(--frost-border);
+}
+.nav-links a:hover { color: var(--violet-600); }
+.logo-icon { background: var(--grad-main) !important; box-shadow: 0 6px 18px rgba(124, 58, 237, .22); }
+.logo b { background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* hero + page headers: mint -> ice -> lavender */
+.hero, .page-header { background: var(--grad-hero) !important; position: relative; overflow: hidden; }
+.hero::after, .page-header::after { /* frosted bottom edge */
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, .85));
+}
+.hero > *, .page-header > * { position: relative; z-index: 1; }
+.badge { border: 1px solid var(--violet-200); background: rgba(255, 255, 255, .8); }
+.hero-card.main { background: var(--grad-main) !important; box-shadow: 0 25px 60px rgba(76, 110, 200, .28); }
+
+/* bubbles become ice orbs with a lavender tint */
+.bubble {
+  background: radial-gradient(circle at 30% 28%, rgba(255, 255, 255, .95) 0%, rgba(201, 236, 251, .55) 35%, rgba(196, 178, 251, .25) 70%, rgba(127, 227, 189, .08) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, .7);
+  box-shadow: inset -6px -8px 18px rgba(139, 92, 246, .10), inset 6px 6px 14px rgba(255, 255, 255, .8);
+}
+
+/* purple accents */
+.section-title .tag { color: var(--violet-500); }
+.section-title .line, .progress span { background: var(--grad-main); }
+.chip { background: var(--violet-50); color: var(--violet-600); border: 1px solid var(--violet-100); }
+.card-cover .chip { background: rgba(255, 255, 255, .9); color: var(--violet-600); }
+.meta i, .info-row i, .check-list i { color: var(--teal-500); }
+.member .role, .tl-item .year { color: var(--violet-600); }
+.stat i, .feature .ic i { background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.avatar { background: var(--grad-main) !important; box-shadow: 0 0 0 5px var(--ice-100), 0 0 0 6px var(--violet-200); }
+.timeline::before { background: linear-gradient(180deg, var(--mint-400), var(--ice-300), var(--violet-400)) !important; }
+.tl-item::after { border-color: var(--violet-400) !important; }
+.btn-outline { border-color: var(--violet-300); color: var(--violet-600); background: rgba(255, 255, 255, .8); }
+.btn-outline:hover { background: var(--violet-50); border-color: var(--violet-400); }
+.btn-primary { background-size: 160% 160%; transition: var(--transition), background-position .6s ease; }
+.btn-primary:hover { background-position: 100% 50%; }
+.filter-btn:hover { border-color: var(--violet-300); color: var(--violet-600); }
+.search-box input, .form-group input, .form-group select, .form-group textarea { background: rgba(255, 255, 255, .85); }
+.search-box input:focus, .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--violet-400) !important; box-shadow: 0 0 0 4px var(--violet-100) !important;
+}
+.search-box i { color: var(--violet-500); }
+.checkbox input { accent-color: var(--violet-500); }
+.ticket { background: var(--grad-ice); border-color: var(--violet-300); }
+.socials a:hover { background: var(--grad-main); }
+
+/* event / news covers: mint, ice and lavender blends */
+.cover-1 { background: linear-gradient(135deg, #2ebf8b, #14b8a6) !important; }
+.cover-2 { background: linear-gradient(135deg, #4fd1a1, #38bdf8) !important; }
+.cover-3 { background: linear-gradient(135deg, #7fe3bd, #8b5cf6) !important; }
+.cover-4 { background: linear-gradient(135deg, #14b8a6, #6d5bd0) !important; }
+.cover-5 { background: linear-gradient(135deg, #a5def7, #a78bfa) !important; }
+.cover-6 { background: linear-gradient(135deg, #1fa477, #4c1d95) !important; }
+.card-cover, .details-cover, .g-item { position: relative; overflow: hidden; }
+.card-cover::before, .details-cover::before, .g-item::before { /* frosted glints */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, .45) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 30%, rgba(255, 255, 255, .35) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 60% 78%, rgba(255, 255, 255, .3) 0 2px, transparent 3px),
+    linear-gradient(160deg, rgba(255, 255, 255, .22), transparent 45%);
+}
+
+/* form side + countdown: deep mint -> violet */
+.form-side, .countdown-box { background: var(--grad-main) !important; }
+.countdown div { background: rgba(255, 255, 255, .18); border: 1px solid rgba(255, 255, 255, .35); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+
+/* footer: dark evergreen into midnight purple, with ice line */
+.footer { background: var(--grad-dark) !important; position: relative; }
+.footer::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(90deg, var(--mint-400), var(--ice-300), var(--violet-400)); }
+
+/* scroll progress + back to top */
+#scroll-progress { background: var(--grad-text) !important; }
+#back-top { background: var(--grad-main) !important; }
+
+/* toast */
+.toast { border-left-color: var(--violet-500) !important; }
+
+/* ---------- Floating ice crystals (created by frost.js) ---------- */
+.frost-layer { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.frost-flake {
+  position: absolute; top: -30px; color: rgba(255, 255, 255, .95);
+  filter: drop-shadow(0 0 4px rgba(165, 222, 247, .9)) drop-shadow(0 0 8px rgba(167, 139, 250, .45));
+  animation: frost-fall linear infinite; opacity: .85;
+}
+.frost-flake svg { width: 100%; height: 100%; display: block; }
+
+@keyframes frost-shimmer { to { background-position: 200% center; } }
+@keyframes frost-fall {
+  0% { transform: translate3d(0, -10px, 0) rotate(0deg); opacity: 0; }
+  10% { opacity: .9; }
+  100% { transform: translate3d(var(--drift, 30px), 520px, 0) rotate(240deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .frost-flake, .text-gradient { animation: none !important; }
+  .frost-layer { display: none; }
+}

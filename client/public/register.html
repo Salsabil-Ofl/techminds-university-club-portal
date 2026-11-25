@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register for a club event">
+  <title>Event Registration | TechMinds Club</title>
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/theme-frost.css">
+  <link rel="stylesheet" href="css/lotus.css">
+</head>
+<body>
+  <div id="loader"><div class="loader-ring"></div></div>
+  <div id="scroll-progress"></div>
+
+  <!-- Header & navigation (built by js/main.js) -->
+  <header id="site-header"></header>
+
+  <main>
+  <!-- Page header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="reveal">Event <span class='text-gradient'>Registration</span></h1>
+      <p class="reveal">Choose your event and complete the form to get your ticket.</p>
+      <div class="breadcrumb reveal"><a href="home.html">Home</a> / <span>Register</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="form-wrap reveal zoom">
+        <div class="form-side">
+          <h2>Reserve your seat</h2>
+          <p>Fill in the form to register for any upcoming event. Fields marked with * are required.</p>
+          <ul>
+            <li><i class="fa-solid fa-ticket"></i> Instant ticket number</li>
+            <li><i class="fa-solid fa-certificate"></i> Attendance certificate</li>
+            <li><i class="fa-solid fa-xmark"></i> Free cancellation from My Tickets</li>
+          </ul>
+        </div>
+        <div class="form-box">
+          <form id="register-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="reg-name">Full Name <span class="req">*</span></label>
+                <input type="text" id="reg-name" data-label="Full name" data-type="name" placeholder="e.g. Salsabil Ahmed" required>
+                <div class="error-msg"></div>
+              </div>
+              <div class="form-group">
+                <label for="reg-id">Student ID <span class="req">*</span></label>
+                <input type="text" id="reg-id" data-label="Student ID" data-type="id" placeholder="e.g. 20230145" required>
+                <div class="error-msg"></div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="reg-email">Email <span class="req">*</span></label>
+                <input type="email" id="reg-email" data-label="Email" data-type="email" placeholder="name@mail.com" required>
+                <div class="error-msg"></div>
+              </div>
+              <div class="form-group">
+                <label for="reg-phone">Phone <span class="req">*</span></label>
+                <input type="tel" id="reg-phone" data-label="Phone" data-type="phone" placeholder="01xxxxxxxxx" required>
+                <div class="error-msg"></div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="reg-dept">Department <span class="req">*</span></label>
+                <select id="reg-dept" data-label="Department" required>
+                  <option value="">-- Select department --</option>
+                  <option>Information Technology</option>
+                  <option>Industrial Technology</option>
+                  <option>Energy Technology</option>
+                  <option>Mechatronics</option>
+                </select>
+                <div class="error-msg"></div>
+              </div>
+              <div class="form-group">
+                <label for="reg-level">Level <span class="req">*</span></label>
+                <select id="reg-level" data-label="Level" required>
+                  <option value="">-- Select level --</option>
+                  <option>Level 1</option><option>Level 2</option><option>Level 3</option><option>Level 4</option>
+                </select>
+                <div class="error-msg"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="reg-event">Event <span class="req">*</span></label>
+              <select id="reg-event" data-label="Event" required>
+                <option value="">-- Choose an event --</option>
+              </select>
+              <div class="error-msg"></div>
+            </div>
+            <div class="form-group">
+              <label for="reg-notes">Notes (optional)</label>
+              <textarea id="reg-notes" placeholder="Anything we should know?"></textarea>
+              <div class="error-msg"></div>
+            </div>
+            <div class="form-group">
+              <label class="checkbox"><input type="checkbox" id="reg-agree" required> I agree to attend on time and follow the club rules. <span class="req">*</span></label>
+              <div class="error-msg"></div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-paper-plane"></i> Register Now</button>
+          </form>
+
+          <!-- Success message -->
+          <div class="success-box" id="register-success">
+            <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+            <h3>Registration Successful!</h3>
+            <p>Your seat has been reserved. Save your ticket details below.</p>
+            <div class="ticket" id="ticket-info"></div>
+            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+              <a href="my-registrations.html" class="btn btn-primary">My Tickets</a>
+              <button class="btn btn-outline" id="register-again">Register Another</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Footer (built by js/main.js) -->
+  <div id="site-footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/frost.js"></script>
+  <script src="js/lotus.js" defer></script>
+</body>
+</html>
