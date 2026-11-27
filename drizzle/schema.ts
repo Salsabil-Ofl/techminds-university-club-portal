@@ -31,7 +31,7 @@ export type InsertUser = typeof users.$inferInsert;
 /* ---------- Club content ---------- */
 
 export const EVENT_CATEGORIES = ["Workshop", "Competition", "Seminar", "Networking"] as const;
-export const MEMBER_GROUPS = ["Board", "Technical", "Media", "Events"] as const;
+export const MEMBER_GROUPS = ["Board", "Technical", "Media", "Events", "Members"] as const;
 export const NEWS_CATEGORIES = ["Achievements", "Announcements", "Events", "Partnerships"] as const;
 export const REGISTRATION_STATUSES = ["confirmed", "attended", "cancelled"] as const;
 
@@ -63,6 +63,9 @@ export const members = mysqlTable("members", {
   group: mysqlEnum("group", MEMBER_GROUPS).notNull(),
   dept: varchar("dept", { length: 120 }).notNull(),
   year: varchar("year", { length: 40 }).notNull(),
+  studentId: varchar("studentId", { length: 20 }),
+  linkedinUrl: varchar("linkedinUrl", { length: 512 }),
+  githubUrl: varchar("githubUrl", { length: 512 }),
   sortOrder: int("sortOrder").notNull().default(0),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 });

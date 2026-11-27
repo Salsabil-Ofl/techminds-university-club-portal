@@ -15,6 +15,13 @@
       "when": 1795636873044,
       "tag": "0001_clammy_nightshade",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1795796958237,
+      "tag": "0002_member_profile_fields",
+      "breakpoints": true
     }
   ]
 }

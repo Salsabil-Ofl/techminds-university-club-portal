@@ -11,18 +11,21 @@ import { toast } from "sonner";
 import { EntityDialog, type FieldDef, type FieldValue } from "../EntityDialog";
 import { ConfirmDelete, EmptyRow, errorMessage, PageHeader, type RouterOutputs } from "../ui";
 
-const GROUPS = ["Board", "Technical", "Media", "Events"] as const;
+const GROUPS = ["Board", "Technical", "Media", "Events", "Members"] as const;
 
 const FIELDS: FieldDef[] = [
   { name: "name", label: "Full name", required: true, minLength: 3, maxLength: 120, full: true },
   { name: "role", label: "Role", required: true, placeholder: "e.g. President" },
   { name: "group", label: "Team", type: "select", options: GROUPS.map(g => ({ value: g, label: g })) },
-  { name: "dept", label: "Department", required: true },
-  { name: "year", label: "Year / level", required: true, placeholder: "e.g. 3rd Year" },
+  { name: "dept", label: "Department", placeholder: "Optional" },
+  { name: "year", label: "Year / level", placeholder: "Optional" },
+  { name: "studentId", label: "Student ID", placeholder: "Optional; 6–10 digits" },
+  { name: "linkedinUrl", label: "LinkedIn URL", type: "text", placeholder: "https://www.linkedin.com/in/…" },
+  { name: "githubUrl", label: "GitHub URL", type: "text", placeholder: "https://github.com/…" },
   { name: "sortOrder", label: "Display order", type: "number", min: 0, max: 9999, hint: "Lower numbers appear first" },
 ];
 
-const EMPTY: Record<string, FieldValue> = { name: "", role: "", group: "Technical", dept: "", year: "", sortOrder: 0 };
+const EMPTY: Record<string, FieldValue> = { name: "", role: "", group: "Members", dept: "", year: "", studentId: "", linkedinUrl: "", githubUrl: "", sortOrder: 0 };
 
 type MemberRow = RouterOutputs["admin"]["members"]["list"][number];
 
@@ -60,7 +63,8 @@ export default function MembersPage() {
   const submit = (v: Record<string, FieldValue>) => {
     const payload = {
       name: String(v.name), role: String(v.role), group: v.group as (typeof GROUPS)[number],
-      dept: String(v.dept), year: String(v.year), sortOrder: Number(v.sortOrder) || 0,
+      dept: String(v.dept), year: String(v.year), studentId: String(v.studentId ?? ""),
+      linkedinUrl: String(v.linkedinUrl ?? ""), githubUrl: String(v.githubUrl ?? ""), sortOrder: Number(v.sortOrder) || 0,
     };
     if (editing) update.mutate({ id: editing.id, data: payload });
     else create.mutate(payload);
@@ -137,7 +141,7 @@ export default function MembersPage() {
         onOpenChange={setOpen}
         title={editing ? "Edit member" : "Add member"}
         fields={FIELDS}
-        initial={editing ? { name: editing.name, role: editing.role, group: editing.group, dept: editing.dept, year: editing.year, sortOrder: editing.sortOrder } : EMPTY}
+        initial={editing ? { name: editing.name, role: editing.role, group: editing.group, dept: editing.dept, year: editing.year, studentId: editing.studentId ?? "", linkedinUrl: editing.linkedinUrl ?? "", githubUrl: editing.githubUrl ?? "", sortOrder: editing.sortOrder } : EMPTY}
         saving={create.isPending || update.isPending}
         onSubmit={submit}
       />

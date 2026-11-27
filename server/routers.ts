@@ -28,12 +28,29 @@ const eventInput = z.object({
   agenda: z.string().trim().max(3000),
 });
 
+const optionalMemberValue = (schema: z.ZodType<string>) =>
+  z.preprocess(value => value == null || (typeof value === "string" && value.trim() === "") ? "" : value, schema);
+const optionalStudentId = optionalMemberValue(z.string().regex(/^(?:[0-9]{6,10})?$/, "Student ID must be 6-10 digits"));
+const optionalProfileUrl = (allowedHosts: string[]) => optionalMemberValue(
+  z.string().max(512).refine(value => {
+    if (!value) return true;
+    try {
+      const url = new URL(value);
+      return url.protocol === "https:" && allowedHosts.some(host => url.hostname === host || url.hostname.endsWith(`.${host}`));
+    } catch {
+      return false;
+    }
+  }, "Enter an HTTPS profile URL on the allowed service")
+);
 const memberInput = z.object({
   name: z.string().trim().min(3).max(120),
   role: z.string().trim().min(2).max(120),
   group: z.enum(MEMBER_GROUPS),
-  dept: z.string().trim().min(2).max(120),
-  year: z.string().trim().min(2).max(40),
+  dept: z.string().trim().max(120),
+  year: z.string().trim().max(40),
+  studentId: optionalStudentId,
+  linkedinUrl: optionalProfileUrl(["linkedin.com"]),
+  githubUrl: optionalProfileUrl(["github.com"]),
   sortOrder: z.number().int().min(0).max(9999).default(0),
 });
 

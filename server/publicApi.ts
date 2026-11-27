@@ -94,7 +94,7 @@ export function registerPublicApi(app: Express) {
           description: e.description,
           agenda: e.agenda.split("\n").map(s => s.trim()).filter(Boolean),
         })),
-        members: memberList.map(({ name, role, group, dept, year }) => ({ name, role, group, dept, year })),
+        members: memberList.map(({ name, role, group, dept, year, studentId, linkedinUrl, githubUrl }) => ({ name, role, group, dept, year, studentId, linkedinUrl, githubUrl })),
         news: newsList.map(({ id, title, category, date, icon, cover, excerpt, content }) => ({
           id, title, category, date, icon, cover, excerpt, content,
         })),
